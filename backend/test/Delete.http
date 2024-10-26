@@ -1,0 +1,5 @@
+## 更新
+
+DELETE   http://localhost:8080/todo/4
+Content-Type: application/json
+Accept: application/json
