@@ -13,7 +13,14 @@
 - 完了 done
 
 ## 課題
-- deleted_atが日本時間にならない
 - Goを修正しても再度go run main.goをして立ち上げ直さないと変更が反映されない
+↓
+airパッケージをインストールして解決(https://github.com/air-verse/air)
+
+- deleted_atが日本時間にならない
+↓
+mysqlドライバが悪さをしていた
+db, err := sql.Open("mysql", "user:password@tcp(db:3306)/testdb?loc=Asia%2FTokyo")
+データベースに接続するときにloc=Asia%2Tokyoとしたらうまくいった
+
 - バリデーション処理
-- dockerを立ち上げたあとgo run main.goをしないといけない
