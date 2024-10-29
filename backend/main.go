@@ -20,7 +20,7 @@ type Todo struct {
 }
 
 func connectDB() *sql.DB {
-	db, err := sql.Open("mysql", "user:password@tcp(db:3306)/testdb")
+	db, err := sql.Open("mysql", "user:password@tcp(db:3306)/testdb?loc=Asia%2FTokyo")
 	if err != nil {
 		log.Fatal(err)
 	}
