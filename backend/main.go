@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -74,13 +75,10 @@ func updateTodo(db *sql.DB, todoId string, content string) {
 }
 
 func deleteTodo(db *sql.DB, todoId string) {
-	jst, err := time.LoadLocation("Asia/Tokyo")
-	if err != nil {
-		panic(err)
-	}
-	now := time.Now().In(jst)
+	now := time.Now()
+	log.Println(now)
 
-	_, err = db.Exec("update todos set deleted_at = ? where todo_id = ?", now, todoId)
+	_, err := db.Exec("update todos set deleted_at = ? where todo_id = ?", now, todoId)
 
 	if err != nil {
 		log.Fatalln(err)
@@ -93,6 +91,11 @@ func doneTodo(db *sql.DB, todoId string) {
 	if err != nil {
 		log.Fatalln(err)
 	}
+}
+
+func init() {
+	_ = os.Setenv("TZ", "Asia/Tokyo")
+	log.Println("init")
 }
 
 func main() {

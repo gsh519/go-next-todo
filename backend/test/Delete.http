@@ -1,5 +1,5 @@
-## 更新
+## 削除
 
-DELETE   http://localhost:8080/todo/4
+DELETE   http://localhost:8080/todo/2
 Content-Type: application/json
 Accept: application/json
