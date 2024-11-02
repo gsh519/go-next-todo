@@ -5,5 +5,5 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "content": "テスト更新"
+    "content": ""
 }

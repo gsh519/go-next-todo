@@ -12,6 +12,13 @@
 - 削除 done
 - 完了 done
 
+## フロント
+- 一覧取得処理
+- 新規登録処理
+- 更新高処理
+- 完了処理
+- 削除処理
+
 ## 課題
 - Goを修正しても再度go run main.goをして立ち上げ直さないと変更が反映されない
 ↓
@@ -24,3 +31,7 @@ db, err := sql.Open("mysql", "user:password@tcp(db:3306)/testdb?loc=Asia%2FTokyo
 データベースに接続するときにloc=Asia%2Tokyoとしたらうまくいった
 
 - バリデーション処理
+↓
+create, update時にcontentが入力されているかチェック
+↓
+gin  go-playground/validator/v10 を使ってバリデーション
