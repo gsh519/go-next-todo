@@ -60,6 +60,7 @@ func UpdateTodoHandler(database *sql.DB) gin.HandlerFunc {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 			return
 		}
+
 		c.Status(http.StatusNoContent)
 	}
 }

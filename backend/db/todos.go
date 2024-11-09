@@ -17,7 +17,7 @@ func FetchTodos(database *sql.DB) ([]models.Todo, error) {
 	var todos []models.Todo
 	for rows.Next() {
 		var todo models.Todo
-		if err := rows.Scan(&todo.ID, &todo.Content, &todo.IsDone, &todo.DeletedAt); err != nil {
+		if err := rows.Scan(&todo.TodoId, &todo.Content, &todo.IsDone, &todo.DeletedAt); err != nil {
 			return nil, fmt.Errorf("failed to scan row: %w", err)
 		}
 		todos = append(todos, todo)
