@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -15,13 +16,12 @@ func main() {
 	log.Println("init")
 
 	// データベース接続
-	db.ConnectDB()
 	database := db.ConnectDB()
 	defer database.Close()
 
 	router := gin.Default()
+	router.Use(cors.Default())
 
-	// Todoエンドポイントのハンドラ設定
 	router.GET("/todos", handlers.GetTodos(database))
 	router.POST("/todo", handlers.CreateTodoHandler(database))
 	router.PUT("/todo/:todoId", handlers.UpdateTodoHandler(database))
