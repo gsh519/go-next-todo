@@ -1,4 +1,4 @@
-# GoとNext.jsを使ってTODOアプリを作ってみようの巻
+# GoとNext.jsを使ってTODOアプリを作ってみよう
 
 ## Docker構成
 - Go(Gin)
